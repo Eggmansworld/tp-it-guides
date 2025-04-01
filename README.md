@@ -1,4 +1,4 @@
-TeknoParrot detailed Postgres database setup guides for the following incredible Technologies games:
+Detailed Postgres database setup guides for the following incredible Technologies games:
 
 - Golden Tee Live 2006
 - Golden Tee Live 2007
