@@ -8,6 +8,7 @@ Detailed Postgres database setup guides for the following incredible Technologie
 - Golden Tee Unplugged 2011
 - Golden Tee Golf 2012
 - Golden Tee Golf 2013
+- Golden Tee Golf 2014
 - Orange County Choppers Pinball
 - Power Putt Live 2012
 - Power Putt Live 2013
