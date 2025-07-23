@@ -39,15 +39,11 @@ You must be logged into your Windows PC with an account that has administrator p
     <img width="303" height="113" alt="image" src="https://github.com/user-attachments/assets/e187315d-b40e-4cc6-b04f-762b04b3a3d8" />
 
 2.  In the list of Services, find “**Secondary Login**”
-
-    a.  Double-click the name to open the **Secondary Login** properties
-
-    b.  Change the Startup Type to **Automatic**
-
-    c.  Under “Service Status”, click the **Start** button
-
-    d.  Click on OK and close the Services window.
-
+    - Double-click the name to open the **Secondary Login** properties
+    - Change the Startup Type to **Automatic**
+    - Under “Service Status”, click the **Start** button
+    - Click on OK and close the Services window.
+  
     <img width="486" height="427" alt="image" src="https://github.com/user-attachments/assets/b6b34d9d-449c-4290-bd20-7144575c6866" />
 
 3.  Inside the folder you extracted from the download, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.
@@ -60,17 +56,16 @@ You must be logged into your Windows PC with an account that has administrator p
 
     Note: If you used a weak password, you’ll be prompted if you want Postgres to replace it with a random password. It is best to choose “No”, then click the Back button to change your password to something stronger. If you choose “Yes”, then it will create a random 32-character scrambled password which you have to write down by hand (no copy/paste available!)
 
-  <img width="478" height="366" alt="image" src="https://github.com/user-attachments/assets/194cd9de-cffa-4341-9efe-ba7403809688" />
+    <img width="478" height="366" alt="image" src="https://github.com/user-attachments/assets/194cd9de-cffa-4341-9efe-ba7403809688" />
 
 7.  On the next screen titled “**Initialize database cluster”**, make the necessary changes to match the screenshot below. This step creates the internal Postgres database **superuser** account.  
+    - **The “C” Locale must be selected.** It is in the pulldown list at the start of the locales that begin with the letter C. I will not explain why this is used other than to say it is performance related for the database only.
+    - This is the account you use to manage the game databases in Postgres.
+    - Yes, it has the same name as the Windows Service account, but this account is only used to access the database, not run it.
+    - This is the account that TPUI uses to access the game database
+    - It is highly advisable to make the password different than the Service Account password. There is no requirement to make it strong or complex, just make it something you can remember. A memorable example would be “teknoparrot”.
 
-- **The “C” Locale must be selected.** It is in the pulldown list at the start of the locales that begin with the letter C. I will not explain why this is used other than to say it is performance related for the database only.
-- This is the account you use to manage the game databases in Postgres.
-- Yes, it has the same name as the Windows Service account, but this account is only used to access the database, not run it.
-- This is the account that TPUI uses to access the game database
-- It is highly advisable to make the password different than the Service Account password. There is no requirement to make it strong or complex, just make it something you can remember. A memorable example would be “teknoparrot”.
-
-  <img width="558" height="427" alt="image" src="https://github.com/user-attachments/assets/f605bfa4-ab00-4efa-882c-8f87a453bac6" />
+    <img width="558" height="427" alt="image" src="https://github.com/user-attachments/assets/f605bfa4-ab00-4efa-882c-8f87a453bac6" />
 
 8.  Click **Next** to continue
 
@@ -89,16 +84,14 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
 1.  From the Windows Start Menu -\> **PostgreSQL 8.3** folder, click on **pgAdmin III** (or use Windows Search to find the app). **pgAdmin** is the program that allows you to connect to the database server and manage the database you will be setting up in the following steps.
 
 2.  When the **pgAdmin** window opens:
+    - Under **Servers**, double-click on **PostgreSQL Database Server 8.3**
+    - type in your postgres **superuser** password you created earlier to connect to the database. In the example setup in the previous section, the example password was “teknoparrot”.
 
-    1.  Under **Servers**, double-click on **PostgreSQL Database Server 8.3**
-
-    2.  type in your postgres **superuser** password you created earlier to connect to the database. In the example setup in the previous section, the example password was “teknoparrot”.
-
-<img width="422" height="263" alt="image" src="https://github.com/user-attachments/assets/494caf1a-7a09-4817-b665-e60fba059745" />
+    <img width="422" height="263" alt="image" src="https://github.com/user-attachments/assets/494caf1a-7a09-4817-b665-e60fba059745" />
 
 3.  In the Object browser tree, right-click on **Databases** and select **New Database**  
 
-<img width="419" height="130" alt="image" src="https://github.com/user-attachments/assets/f1a3fdde-d252-47a2-90b6-b8d64d0859fd" />
+    <img width="419" height="130" alt="image" src="https://github.com/user-attachments/assets/f1a3fdde-d252-47a2-90b6-b8d64d0859fd" />
 
 4.  On the Properties tab, we need to give the new database a name. The name can be anything you want but keep it simple and use only alphanumeric characters.  
    
@@ -117,44 +110,46 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
     **Tablespace**: pg_default
           
 6. Click on the “**Variables**” tab.
-    a. under **Variable Name**, use the pulldown menu and select "**standard_conforming_strings**"
-    b. put a checkmark in the **Variable Value** box
-    c. click the **Add/Change** button, and it will add the new variable in the list.
-    d. click **OK** to exit
+    - under **Variable Name**, use the pulldown menu and select "**standard_conforming_strings**"
+    - put a checkmark in the **Variable Value** box
+    - click the **Add/Change** button, and it will add the new variable in the list.
+    - click **OK** to exit
+   
+   <img width="396" height="522" alt="image" src="https://github.com/user-attachments/assets/5cb01352-4637-4155-be8a-541b68125df2" />
 
-<img width="396" height="522" alt="image" src="https://github.com/user-attachments/assets/5cb01352-4637-4155-be8a-541b68125df2" />
-
-<img width="393" height="519" alt="image" src="https://github.com/user-attachments/assets/00e4e833-3c9a-4f4a-b6e4-ef1e8e6661a3" />
-
-5.  The new database will be created and is now located under **Databases**. Don’t worry if there is a red X in it, it just means you haven’t selected it. The red X will go away when you click on the database.
+   <img width="393" height="519" alt="image" src="https://github.com/user-attachments/assets/00e4e833-3c9a-4f4a-b6e4-ef1e8e6661a3" />
+   
+7.  The new database will be created and is now located under **Databases**. Don’t worry if there is a red X in it, it just means you haven’t selected it. The red X will go away when you click on the database.
 
 # RESTORE GAME DATABASE
 
-6.  Right-click on your newly created database and select **Restore**
+1.  Right-click on your newly created database and select **Restore**
 
-<img width="228" height="387" alt="image" src="https://github.com/user-attachments/assets/668387a3-1d8a-420c-b799-24d14de05893" />
+    <img width="228" height="387" alt="image" src="https://github.com/user-attachments/assets/668387a3-1d8a-420c-b799-24d14de05893" />
 
-7.  On the “Filename” line, click the “…” file browse button, then **browse to the game folder location where you extracted your game files.**  
+2.  On the “Filename” line, click the “…” file browse button, then **browse to the game folder location where you extracted your game files.**  
 
-<img width="639" height="122" alt="image" src="https://github.com/user-attachments/assets/8f5fd1dd-aaa8-4760-8eeb-e04d1f7808ed" />
+    <img width="639" height="122" alt="image" src="https://github.com/user-attachments/assets/8f5fd1dd-aaa8-4760-8eeb-e04d1f7808ed" />
 
-   a.  The backup files have no file extension, so change the File type from “Backup files (\*.backup)” to “**All Files (\*.\*)**” to be able to see them.
+     - The backup files have no file extension, so change the File type from “Backup files (\*.backup)” to “**All Files (\*.\*)**” to be able to see them.
+     - **Reference Appendix A** for the location and name of each specific game file backup.
+     - All of the backups are in a folder called “pg_backup”, and may or may not have a YYYY-MM-DD subfolder that contain the backup files.
+     - You will load the backup file that starts with the highest 4-digit number.
+     - It’s as simple as that.
 
-   b.  **Reference Appendix A** for the location and name of each specific game file backup. All of the backups are in a folder called “pg_backup”, and may or may not have a YYYY-MM-DD subfolder that contain the backup files. You will load the backup file that starts with the highest 4-digit number. It’s as simple as that.
-
-<img width="853" height="393" alt="image" src="https://github.com/user-attachments/assets/86638341-b2ef-4453-a80f-e62600fe3af5" />
+    <img width="853" height="393" alt="image" src="https://github.com/user-attachments/assets/86638341-b2ef-4453-a80f-e62600fe3af5" />
 
 3.  Left click on the file to highlight it, then click **Open**. The file path will now be added to the Restore Database filename line.
 
 4.  Changing no other options, click on **OK**.
 
-<img width="400" height="378" alt="image" src="https://github.com/user-attachments/assets/de8fd796-9f6b-4c1e-8db6-e9aa078a287e" />
+    <img width="400" height="378" alt="image" src="https://github.com/user-attachments/assets/de8fd796-9f6b-4c1e-8db6-e9aa078a287e" />
 
 5.  The database will be imported. **IGNORE the warning about the errors on restore.**  
       
     Click on **CANCEL**. Yes it’s counter-intuitive, just do it. You're done!
       
-<img width="719" height="583" alt="image" src="https://github.com/user-attachments/assets/13033034-1387-4209-9f1b-0be9ef2e89fa" />
+    <img width="719" height="583" alt="image" src="https://github.com/user-attachments/assets/13033034-1387-4209-9f1b-0be9ef2e89fa" />
 
 # START THE TEKNOPARROT FRONTEND
 
@@ -169,13 +164,13 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
     Postgres – Path:      C:\Program Files (x86)\PostgreSQL\8.3\bin\\  
     Postgres – Address:   127.0.0.1  
     Postgres – Port:      5432  
-    Postgres – DbName:    see Appendix A for each game’s default database name
+    Postgres – DbName:    see Appendix A for each game’s default database name  
     Postgres – Username:  postgres  
     Postgres – Pass:      type your postgres superuser password here (NOTE: THE PASSWORD LINE IS EMPTY BY DEFAULT!)
 
 Your settings should look something like this:
 
-<img width="792" height="264" alt="image" src="https://github.com/user-attachments/assets/c560399e-c151-4613-955e-81478beb60ed" />
+  <img width="792" height="264" alt="image" src="https://github.com/user-attachments/assets/c560399e-c151-4613-955e-81478beb60ed" />
 
 5.  click on **Save Settings**
 
@@ -187,82 +182,95 @@ For questions about different game settings and problems with gameplay, please v
 
 # APPENDIX A
 
-Golden Tee Live 2006
-DB name: GameDB06  
-Encoding: **UTF8**
-db backup location: \pg_backup\2017-12-18\1922-postgresql_database-GameDB-backup  
-  
-Golden Tee Live 2007  
-DB name: GameDB07  
-Encoding: **SQL_ASCII**  
-db backup location: \pg_backup\2017-12-18\2043-postgresql_database-GameDB-backup
+**Golden Tee Live 2006**   
+DB name: GameDB06   
+Encoding: UTF8   
+db backup location: \_backup\2017-12-18  
+db filename: 1922-postgresql_database-GameDB-backup
 
-Golden Tee Live 2008  
-DB name: GameDB08  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2016-01-30\1850-postgresql_database-GameDB-backup
+**Golden Tee Live 2007**   
+DB name: GameDB07   
+Encoding: SQL_ASCII   
+db backup location: \pg_backup\2017-12-18\   
+db filename: 2043-postgresql_database-GameDB-backup
 
-Golden Tee Live 2009  
-DB name: GameDB09  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2015-07-27\2035-postgresql_database-GameDB-backup
+**Golden Tee Live 2008**   
+DB name: GameDB08   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2016-01-30\   
+db filename: 1850-postgresql_database-GameDB-backup
 
-Golden Tee Live 2010  
-DB name: GameDB10  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2017-12-06\1442-postgresql_database-GameDB-backup
+**Golden Tee Live 2009**   
+DB name: GameDB09   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2015-07-27\   
+db filename: 2035-postgresql_database-GameDB-backup
 
-Golden Tee Live 2011  
-DB name: GameDB11  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2017-12-06\1621-postgresql_database-GameDB-backup
+**Golden Tee Live 2010**   
+DB name: GameDB10   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2017-12-06\   
+db filename: 1442-postgresql_database-GameDB-backup
 
-Golden Tee Live 2012  
-DB name: GameDB12  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2025-03-22\1826-postgresql_database-GameDB-backup
+**Golden Tee Live 2011**   
+DB name: GameDB11   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2017-12-06\   
+db filename: 1621-postgresql_database-GameDB-backup
 
-Golden Tee Live 2013  
-DB name: GameDB13  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2025-03-22\1920-postgresql_database-GameDB-backup
+**Golden Tee Live 2012**   
+DB name: GameDB12   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2025-03-22\   
+db filename: 1826-postgresql_database-GameDB-backup
 
-Golden Tee Live 2014  
-DB name: GameDB14  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2018-01-29\2202-postgresql_database-GameDB-backup
+**Golden Tee Live 2013**   
+DB name: GameDB13   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2025-03-22\   
+db filename: 1920-postgresql_database-GameDB-backup
 
-Orange County Choppers Pinball  
-DB name: GameDBOCC  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2020-09-12\1549-postgresql_database-GameDB-backup
+**Golden Tee Live 2014**   
+DB name: GameDB14   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2018-01-29\   
+db filename: 2202-postgresql_database-GameDB-backup
 
-Power Putt Live 2012  
-DB name: GAMEDBPP12  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\1433-postgresql_database-GameDB-backup
+**Orange County Choppers Pinball**   
+DB name: GameDBOCC   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2020-09-12\   
+db filename: 1549-postgresql_database-GameDB-backup
 
-Power Putt Live 2013  
-DB name: GAMEDBPP13  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2023-10-27\2042-postgresql_database-GameDB-backup
+**Power Putt Live 2012**   
+DB name: GAMEDBPP12   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\   
+db filename: 1433-postgresql_database-GameDB-backup
 
-Silver Strike Bowling Live  
-DB name: GameDBSSB  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2222-postgresql_database-GameDB-backup
+**Power Putt Live 2013**   
+DB name: GAMEDBPP13   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2023-10-27\   
+db filename: 2042-postgresql_database-GameDB-backup
 
-Target Toss Pro Bags  
-DB name: GameDBBags  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2017-11-16\0136-postgresql_database-GameDB-backup
+**Silver Strike Bowling Live**   
+DB name: GameDBSSB   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\   
+db filename: 2222-postgresql_database-GameDB-backup
 
-Target Toss Pro Lawn Darts & Bags  
-DB name: GameDBLawndarts  
-Encoding: **SQL_ASCII**   
-db backup location: \pg_backup\2017-05-28\2104-postgresql_database-GameDB-backup
+**Target Toss Pro Bags**   
+DB name: GameDBBags   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2017-11-16\   
+db filename: 0136-postgresql_database-GameDB-backup
 
-
+**Target Toss Pro Lawn Darts & Bags**   
+DB name: GameDBLawndarts   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2017-05-28\   
+db filename: 2104-postgresql_database-GameDB-backup
 
 # TROUBLESHOOTING AND HELP
 
