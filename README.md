@@ -107,7 +107,8 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
     **Owner**: postgres
     
     **Encoding**: SQL_ASCII
-          (note: all games have this encoding except for Golden Tee 2006)
+    
+      (note: all games have this encoding except for Golden Tee 2006)
     
     **Template**: template0
     
@@ -149,31 +150,26 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
 
 5.  The database will be imported. **IGNORE the warning about the errors on restore.**  
       
-    Click on **CANCEL**. Yes it’s counter-intuitive, just do it.  
+    Click on **CANCEL**. Yes it’s counter-intuitive, just do it. You're done!
       
 <img width="719" height="583" alt="image" src="https://github.com/user-attachments/assets/13033034-1387-4209-9f1b-0be9ef2e89fa" />
 
-
-6.  **TPUI now sets up all the games database settings automatically, so you're done!**
-
 # START THE TEKNOPARROT FRONTEND
 
-1.  If you haven’t already, add the game to your TP library. If you don’t see it, UPDATE TP.
+1.  If you haven’t already, add the game to your TP library. If you don’t see it, run the internal updater.
 
-2.  Select the game from the game library list, then click on **Game Settings  **
+2.  Select the game from the game library list, then click on **Game Settings**
 
 3.  click on the Game Executable file path, browse to your game folder location, select the “**game.bin**” file and click on **Open**
 
-4.  The default settings are as follows. If you have setup Postgres as per this guide and didn’t deviate from the recommended settings, you only need to change the DbName and enter the postgres user password. If you’ve gone out on your own and customized your     install path or any other settings, make the appropriate changes as necessary.  
+4.  The default settings are as follows. If you have setup Postgres as per this guide and didn’t deviate from the recommended settings, you only need to change the DbName and enter the postgres password. If you’ve gone out on your own and customized your install path or any other settings, make the appropriate changes as necessary.
       
     Postgres – Path:      C:\Program Files (x86)\PostgreSQL\8.3\bin\\  
     Postgres – Address:   127.0.0.1  
     Postgres – Port:      5432  
     Postgres – DbName:    see Appendix A for each game’s default database name
     Postgres – Username:  postgres  
-    Postgres – Pass:      type your postgres superuser password here
-      
-    NOTE: THE PASSWORD LINE IS EMPTY BY DEFAULT!
+    Postgres – Pass:      type your postgres superuser password here (NOTE: THE PASSWORD LINE IS EMPTY BY DEFAULT!)
 
 Your settings should look something like this:
 
@@ -181,15 +177,11 @@ Your settings should look something like this:
 
 5.  click on **Save Settings**
 
-6.  Click on **Controller Setup** and assign keyboard keys to each game
-    button/function as desired
+6.  Click on **Controller Setup** and assign keyboard keys to each game button/function as desired
 
 7.  **Click on LAUNCH GAME.**
 
-YOU’RE DONE!  
-  
 For questions about different game settings and problems with gameplay, please visit the TeknoParrot Discord and ask your questions there.
-
 
 # APPENDIX A
 
@@ -273,25 +265,24 @@ db backup location: \pg_backup\2017-05-28\2104-postgresql_database-GameDB-backup
 # TROUBLESHOOTING AND HELP
 
 # Postgres account modifications
-- to remove the Postgres service account, do a Windows Search for “Computer Management” and run the app. Under “Local Users and Groups/Users”, right click and delete the “postgres” account.  
-  
+
+Postgres Windows Service Account
+  - do a Windows Search for “Computer Management” and run the app. Expand the “Local Users and Groups” branch and click on "Users".
+    - to delete the account, right click the "postgres" account and select Delete
+    - to change the password, right click and select "Set Password". Click on Proceed, and follow on-screen instructions.
+
   <img width="975" height="73" alt="image" src="https://github.com/user-attachments/assets/0f31046c-421f-4a91-9ed6-319c861ca998" />
 
-- to change the password on the Postgres service account, go to the same location as above, right click the postgres user and select "change password".
-
-- to remove the Postgres database account, uninstall the PostgreSQL app from Windows, or right-click on the database server in pgAdmin and select Delete/Drop.  You're on your own to recreate your database server.
+Postgres SuperUser Database Account (the account you use in TPUI settings):
+  - in pgAdmin, connect to the server using your current credentials
+  - In the Object browser, go to Login Roles and expand the branch to view the users
+    - to change the password, right-click the user (e.g., postgres) and select Properties. Enter a new password and click OK.
   
   <img width="287" height="132" alt="image" src="https://github.com/user-attachments/assets/7f43a277-4d28-441b-8e5b-f16f356bfdc3" />
 
-- to change the password on the Postgres database account (the one you type into TPUI settings):
-  - Open pgAdmin III
-  - Connect to the server using your current credentials
-  - In the Object browser, go to Login Roles, expand the tree and right-click the user (e.g., postgres) and select Properties
-  - Enter a new password and click OK.
-
 # Restrict PostgreSQL Access to Localhost Only
 
-If you followed the above guide to setup Postgres on your computer, restricting access to localhost only is already setup by default, which means the Postgres service will only respond to users and requests on the local computer only. This information is only bringing attention to how you would check to ensure the config files are setup properly.  It would be highly recommended to check this over if you obtained your TeknoParrot setup from another source, such as on a pre-configured hard drive from a dirtbag drive seller. In the interest of security and safety, I'm providing this information so you can keep yourself safe.
+If you followed the above guide to setup Postgres on your computer, restricting access to localhost only is already setup by default. This means the Postgres service will only respond to local users and communication to and from the local database. This information is provided to bring attention on how you would check to ensure the config files are setup correctly. It would be highly recommended to check this over if you obtained a pre-configured TeknoParrot setup from another source, such as paying money for a pre-configured hard drive from a dirtbag drive seller. In the interest of security, I'm providing this information for your own safety.
 
 **Step 1: Edit postgresql.conf**
   - Find the postgresql.conf file (usually in C:\Program Files\PostgreSQL\8.3\data\).
@@ -319,8 +310,7 @@ If you followed the above guide to setup Postgres on your computer, restricting 
   - Open Services (services.msc)
   - Find PostgreSQL 8.3, right-click, and click Restart
   
-That’s It!
-  PostgreSQL will now:
+That’s it. PostgreSQL will now:
   - Only listen for connections from localhost
   - Only allow access via password from 127.0.0.1
   - Block all remote access attempts
