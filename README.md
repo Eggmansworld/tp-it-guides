@@ -1,12 +1,14 @@
 # The Super Easy Universal Setup Guide for all TeknoParrot iT Games
 
-All internal database changes are now done automatically by the TPUI app, so this guide below now applies universally to all iT games in TeknoParrot.
+All necessary internal database changes for each game are now performed automatically by the TPUI app, so this setup guide applies universally to installing Postgres and restoring the game databases for all iT games supported by TeknoParrot.
 
-For historical purposes, the older individual game guides are still available in the releases section, and **can still be used** to setup your game databases.
+For historical purposes, the older individual game guides are still available in the releases section and can still be used to setup your game databases.
 
 # INTRODUCTION
 
-This universal guide is created to assist people with setting up their legally owned backups of their incredible Technologies (iT) games, to be used with the TeknoParrot application (TPUI). This guide assumes that the reader has a basic understanding of how to use a Windows computer. It has been written with a level of detail that even an inexperienced user should be able to follow. Do not be alarmed at the number of pages – there are lots of screenshots to visually assist you along the way. If you have your legally owned backup of the game, you have everything you need for this setup.
+This universal guide is created to assist people with setting up their legally owned backups of their incredible Technologies (iT) games, to be used with the TeknoParrot application (TPUI). This guide assumes that the reader has a basic understanding of how to use a Windows computer. It has been written with a level of detail that even an inexperienced user should be able to follow. If you have your legally owned backup of the game, you have everything you need for this setup.
+
+Do not be alarmed at the length of the guide! Much of it is screenshots to visually assist you along the way. 
 
 ESTIMATED TIME FOR FIRST-TIME FULL POSTGRES INSTALL AND DATABASE SETUP: **10 minutes**
 
@@ -20,11 +22,11 @@ PRE-EXISTING POSTGRES INSTALL, DATABASE SETUP ONLY: **2 minutes**
 
 # PRE-SETUP
 
-If you have NOT setup PostgreSQL yet, carry on to the next section titled “PostgreSQL Install”.  
+If you have NOT installed PostgreSQL on your Windows PC yet, carry on to the next section titled “PostgreSQL Install”.  
   
-If you have already installed PostgreSQL from setting up another iT game, skip ahead to the “**PostgreSQL CREATE DATABASE**” section to install another game. Do not make any changes to existing Postgres databases! To add a new game, you simply need to create a new database for the game and make the necessary adjustments as instructed.  
+If you have already installed PostgreSQL, skip ahead to the “**PostgreSQL CREATE DATABASE**” section to install another game. 
   
-Ensure each game’s files are in a folder – one game per folder. Place the game folders in a static location where you will run your TP games from. Leave the game folder(s) alone for now, we’ll come back to them later.
+Ensure each of your game’s files are extracted to their respective folders – one game per folder. Place the game folders in a static location where you will run your TP games from. Leave the game folder(s) alone for now, we’ll come back to them later.
 
 # PostgreSQL INSTALL
 
