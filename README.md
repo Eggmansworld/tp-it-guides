@@ -153,7 +153,8 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
       
 <img width="719" height="583" alt="image" src="https://github.com/user-attachments/assets/13033034-1387-4209-9f1b-0be9ef2e89fa" />
 
-6.  **TPUI now sets up all the incredible Technologies games database settings automatically, so you are now finished the database setup.  **
+
+6.  **TPUI now sets up all the games database settings automatically, so you're done!**
 
 # START THE TEKNOPARROT FRONTEND
 
@@ -286,5 +287,36 @@ db backup location: \pg_backup\2017-05-28\2104-postgresql_database-GameDB-backup
   - In the Object browser, go to Login Roles, expand the tree and right-click the user (e.g., postgres) and select Properties
   - Enter a new password and click OK.
 
+# Restrict PostgreSQL Access to Localhost Only
 
-
+**Step 1: Edit postgresql.conf**
+  - Find the postgresql.conf file (usually in C:\Program Files\PostgreSQL\8.3\data\).
+  - Open it with a text editor (like Notepad run as administrator).
+  - Look for this line:
+     _ listen_addresses = '*'_
+  Change it to:
+_      listen_addresses = 'localhost'_
+  This tells PostgreSQL to only listen for connections on the local computer.
+  - Save and close the file.
+  
+**Step 2: Edit pg_hba.conf**
+  - In the same folder (data\), open pg_hba.conf.
+  - You’ll see a list of access rules. Make sure only localhost access is allowed, like this:
+  # TYPE  DATABASE  USER  CIDR-ADDRESS        METHOD
+  host    all       all   127.0.0.1/32        md5
+  This allows any user to connect to any database — but only from the local machine using a password (md5).
+  
+  If there are other host lines that allow wider access (e.g., 0.0.0.0/0 or other IPs), comment them out by adding a # at the start of the line.
+  
+  - Save and close the file.
+  
+**Step 3: Restart the PostgreSQL Service**
+  To apply your changes:
+  - Open Services (services.msc)
+  - Find PostgreSQL 8.3, right-click, and click Restart
+  
+That’s It!
+  PostgreSQL will now:
+  - Only listen for connections from localhost
+  - Only allow access via password from 127.0.0.1
+  - Block all remote access attempts
