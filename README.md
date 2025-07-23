@@ -268,7 +268,9 @@ DB name: GameDBLawndarts
 Encoding: **SQL_ASCII**   
 db backup location: \pg_backup\2017-05-28\2104-postgresql_database-GameDB-backup
 
-# MISCELLANEOUS HELP
+
+
+# TROUBLESHOOTING AND HELP
 
 # Postgres account modifications
 - to remove the Postgres service account, do a Windows Search for “Computer Management” and run the app. Under “Local Users and Groups/Users”, right click and delete the “postgres” account.  
@@ -289,25 +291,27 @@ db backup location: \pg_backup\2017-05-28\2104-postgresql_database-GameDB-backup
 
 # Restrict PostgreSQL Access to Localhost Only
 
+If you followed the above guide to setup Postgres on your computer, restricting access to localhost only is already setup by default, which means the Postgres service will only respond to users and requests on the local computer only. This information is only bringing attention to how you would check to ensure the config files are setup properly.  It would be highly recommended to check this over if you obtained your TeknoParrot setup from another source, such as on a pre-configured hard drive from a dirtbag drive seller. In the interest of security and safety, I'm providing this information so you can keep yourself safe.
+
 **Step 1: Edit postgresql.conf**
   - Find the postgresql.conf file (usually in C:\Program Files\PostgreSQL\8.3\data\).
   - Open it with a text editor (like Notepad run as administrator).
   - Look for this line:
-     _ listen_addresses = '*'_
-  Change it to:
-_      listen_addresses = 'localhost'_
-  This tells PostgreSQL to only listen for connections on the local computer.
+  -     #listen_addresses =
+
+    Uncomment the line and change it so it reads:
+  -     listen_addresses = 'localhost'
+    This tells PostgreSQL to only listen for connections on the local computer.
   - Save and close the file.
   
 **Step 2: Edit pg_hba.conf**
   - In the same folder (data\), open pg_hba.conf.
-  - You’ll see a list of access rules. Make sure only localhost access is allowed, like this:
-  # TYPE  DATABASE  USER  CIDR-ADDRESS        METHOD
-  host    all       all   127.0.0.1/32        md5
-  This allows any user to connect to any database — but only from the local machine using a password (md5).
-  
-  If there are other host lines that allow wider access (e.g., 0.0.0.0/0 or other IPs), comment them out by adding a # at the start of the line.
-  
+  - Scroll to the bottom of the file. You’ll see a list of access rules. Make sure only localhost access is allowed, like this:
+
+<img width="542" height="108" alt="image" src="https://github.com/user-attachments/assets/fa255502-aa25-41bf-ae05-8b8af3b0b74b" />
+
+  - This allows any user to connect to any database — but only from the local machine using a password (md5).
+  - If there are other host lines that allow wider access (e.g., 0.0.0.0/0 or other IPs), comment them out by adding a # at the start of the line.
   - Save and close the file.
   
 **Step 3: Restart the PostgreSQL Service**
