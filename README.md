@@ -1,8 +1,10 @@
 # The Super Easy Universal Setup Guide for all TeknoParrot iT Games
 
-All necessary internal database changes for each game are now performed automatically by the TPUI app, so this setup guide applies universally to installing Postgres and restoring the game databases for all iT games supported by TeknoParrot.
+The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
+- install PostgreSQL, and
+- restore a game database from your game backup.
 
-For historical purposes, the older individual game guides are still available in the releases section and can still be used to setup your game databases.
+For historical purposes, the old individual game guides are still available in the releases section and can still be used to setup your game databases.
 
 # INTRODUCTION
 
