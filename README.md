@@ -187,7 +187,7 @@ For questions about different game settings and problems with gameplay, please v
 **Golden Tee Live 2006**   
 DB name: GameDB06   
 Encoding: UTF8   
-db backup location: \_backup\2017-12-18  
+db backup location: \pg_backup\2017-12-18  
 db filename: 1922-postgresql_database-GameDB-backup
 
 **Golden Tee Live 2007**   
