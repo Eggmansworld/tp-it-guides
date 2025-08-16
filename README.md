@@ -136,7 +136,7 @@ After rebooting, you are now done installing PostgreSQL on your computer and you
      - The backup files have no file extension, so change the File type from “Backup files (\*.backup)” to “**All Files (\*.\*)**” to be able to see them.
      - **Reference Appendix A** for the location and name of each specific game file backup.
      - All of the backups are in a folder called “pg_backup”, and may or may not have a YYYY-MM-DD subfolder that contain the backup files.
-     - You will load the backup file that starts with the highest 4-digit number.
+     - You will load the backup file that is in a folder with the newest date and/or starts with the highest 4-digit number.
      - It’s as simple as that.
 
     <img width="853" height="393" alt="image" src="https://github.com/user-attachments/assets/86638341-b2ef-4453-a80f-e62600fe3af5" />
