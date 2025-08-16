@@ -238,6 +238,12 @@ Encoding: SQL_ASCII
 db backup location: \pg_backup\2018-01-29\   
 db filename: 2202-postgresql_database-GameDB-backup
 
+**Golden Tee Live 2015**   
+DB name: GameDB15   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2018-01-30\   
+db filename: 0206-postgresql_database-GameDB-backup
+
 **Orange County Choppers Pinball**   
 DB name: GameDBOCC   
 Encoding: SQL_ASCII    
