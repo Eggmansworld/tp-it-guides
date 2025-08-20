@@ -24,15 +24,15 @@ PRE-EXISTING POSTGRES INSTALL, DATABASE SETUP ONLY: **2 minutes**
 
 # PRE-SETUP
 
-If you have NOT installed PostgreSQL on your Windows PC yet, carry on to the next section titled “PostgreSQL Install”.  
+If you have NOT installed PostgreSQL v8.3 on your Windows PC yet, carry on to the next section titled “PostgreSQL v8.3 Install”.  
   
 If you have already installed PostgreSQL, skip ahead to the “**PostgreSQL CREATE DATABASE**” section to install another game. 
   
 Ensure each of your game’s files are extracted to their respective folders – one game per folder. Place the game folders in a static location where you will run your TP games from. Leave the game folder(s) alone for now, we’ll come back to them later.
 
-# PostgreSQL INSTALL
+# PostgreSQL v8.3 INSTALL
 
-**First, let's calm your fear and doubt about installing an app you may be unfamiliar with. When you install PostgreSQL on your Windows computer, you're simply setting up a local database server that stores and organizes information in a structured way — similar to how Microsoft Excel uses rows and columns. It runs quietly in the background and only responds to programs or tools you authorize to connect to it, which in this case will only be the TeknoParrot app. PostgreSQL doesn’t collect or send your personal data anywhere by default, and it doesn’t interfere with other programs on your PC. It's a trusted, open-source tool used by developers, researchers, and businesses around the world. As long as you follow this guide and keep your system secure, there’s nothing risky about having it installed.**
+**First, let's calm your fear and doubt about installing an app you may be unfamiliar with. When you install PostgreSQL v8.3 on your Windows computer, you're simply setting up a local database server that stores and organizes information in a structured way — similar to how Microsoft Excel uses rows and columns. It runs quietly in the background and only responds to programs or tools you authorize to connect to it, which in this case will only be the TeknoParrot app. PostgreSQL doesn’t collect or send your personal data anywhere by default, and it doesn’t interfere with other programs on your PC. It's a trusted, open-source tool used by developers, researchers, and businesses around the world. As long as you follow this guide and keep your system secure, there’s nothing risky about having it installed.**
 
 You must be logged into your Windows PC with an account that has administrator privileges.
 
