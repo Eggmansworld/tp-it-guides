@@ -1,7 +1,7 @@
 # The Super Easy Universal Setup Guide for all TeknoParrot iT Games
 
 The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
-- install PostgreSQL, and
+- install PostgreSQL v8.3, and
 - restore a game database from your game backup.
 
 For historical purposes, the old individual game guides are still available in the releases section and can still be used to setup your game databases.
@@ -48,7 +48,7 @@ You must be logged into your Windows PC with an account that has administrator p
   
     <img width="486" height="427" alt="image" src="https://github.com/user-attachments/assets/b6b34d9d-449c-4290-bd20-7144575c6866" />
 
-3.  Inside the folder you extracted from the download, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.
+3.  Inside the folder you extracted from the download, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.  DO NOT USE ANY OTHER VERSION OF POSTGRES OTHER THAN v8.3.
 
 4.  Click through the PostgreSQL installer, changing NOTHING (use all default installer settings), until you get to the **Service configuration** window.
 
