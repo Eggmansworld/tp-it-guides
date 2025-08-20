@@ -1,7 +1,7 @@
 # The Super Easy Universal Setup Guide for all TeknoParrot iT Games
 
 The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
-- install PostgreSQL v8.3, and
+- [install PostgreSQL v8.3](https://github.com/Eggmansworld/tp-it-guides/releases/download/universalitguide/The.Super.Easy.Universal.Setup.Guide.for.all.TeknoParrot.iT.Games.v1.2025-08-16.TP.zip), and
 - restore a game database from your game backup.
 
 For historical purposes, the old individual game guides are still available in the releases section and can still be used to setup your game databases.
@@ -50,6 +50,8 @@ You must be logged into your Windows PC with an account that has administrator p
 
 3.  Inside the folder you extracted from the download, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.  DO NOT USE ANY OTHER VERSION OF POSTGRES OTHER THAN v8.3.
 
+    <img width="501" height="251" alt="image" src="https://github.com/user-attachments/assets/fc885d80-e78b-4c4b-92e2-7ff6a220e5bb" />
+
 4.  Click through the PostgreSQL installer, changing NOTHING (use all default installer settings), until you get to the **Service configuration** window.
 
 5.  On the Service Configuration window, leave everything as default except for the Account Password box, type in a strong password. Postgres wants to see a password that contains, at minimum, a combination of upper and lower case letters, and numbers. This creates a Service Account in your Windows OS that is responsible for starting and running the Postgres database server in the background. This account has absolutely **nothing** to do with the TeknoParrot frontend and is only used to run the Postgres server as a system service. STORE THIS PASSWORD SOMEWHERE SAFE.
@@ -58,16 +60,19 @@ You must be logged into your Windows PC with an account that has administrator p
 
     Note: If you used a weak password, you’ll be prompted if you want Postgres to replace it with a random password. It is best to choose “No”, then click the Back button to change your password to something stronger. If you choose “Yes”, then it will create a random 32-character scrambled password which you have to write down by hand (no copy/paste available!)
 
-    <img width="478" height="366" alt="image" src="https://github.com/user-attachments/assets/194cd9de-cffa-4341-9efe-ba7403809688" />
+    <img width="499" height="385" alt="image" src="https://github.com/user-attachments/assets/6e3751a3-8658-49ea-b239-83e06847eb96" />
 
 7.  On the next screen titled “**Initialize database cluster”**, make the necessary changes to match the screenshot below. This step creates the internal Postgres database **superuser** account.  
     - **The “C” Locale must be selected.** It is in the pulldown list at the start of the locales that begin with the letter C. I will not explain why this is used other than to say it is performance related for the database only.
+    
+       <img width="380" height="304" alt="image" src="https://github.com/user-attachments/assets/8a8ca720-8028-4126-87c0-2841e216436a" />
+    
     - This is the account you use to manage the game databases in Postgres.
     - Yes, it has the same name as the Windows Service account, but this account is only used to access the database, not run it.
     - This is the account that TPUI uses to access the game database
     - It is highly advisable to make the password different than the Service Account password. There is no requirement to make it strong or complex, just make it something you can remember. A memorable example would be “teknoparrot”.
 
-    <img width="558" height="427" alt="image" src="https://github.com/user-attachments/assets/f605bfa4-ab00-4efa-882c-8f87a453bac6" />
+     <img width="496" height="382" alt="image" src="https://github.com/user-attachments/assets/92c05458-3114-4a99-9a5e-a82362d1c780" />
 
 8.  Click **Next** to continue
 
