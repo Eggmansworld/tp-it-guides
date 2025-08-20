@@ -184,97 +184,97 @@ For questions about different game settings and problems with gameplay, please v
 
 # APPENDIX A
 
-**Golden Tee Live 2006**   
+**Golden Tee Live 2006** (1.00.48)   
 DB name: GameDB06   
 Encoding: UTF8   
 db backup location: \pg_backup\2017-12-18  
 db filename: 1922-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2007**   
+**Golden Tee Live 2007** (2.00.20)  
 DB name: GameDB07   
 Encoding: SQL_ASCII   
 db backup location: \pg_backup\2017-12-18\   
 db filename: 2043-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2008**   
+**Golden Tee Live 2008** (3.00.12)   
 DB name: GameDB08   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2016-01-30\   
 db filename: 1850-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2009**   
+**Golden Tee Live 2009** (4.00.07)   
 DB name: GameDB09   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2015-07-27\   
 db filename: 2035-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2010**   
+**Golden Tee Live 2010** (5.00.10)   
 DB name: GameDB10   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2017-12-06\   
 db filename: 1442-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2011**   
+**Golden Tee Live 2011** (6.00.09)   
 DB name: GameDB11   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2017-12-06\   
 db filename: 1621-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2012**   
+**Golden Tee Live 2012** (7.00.10)   
 DB name: GameDB12   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2025-03-22\   
 db filename: 1826-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2013**   
+**Golden Tee Live 2013** (8.05.09)   
 DB name: GameDB13   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2025-03-22\   
 db filename: 1920-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2014**   
+**Golden Tee Live 2014** (9.04.06)   
 DB name: GameDB14   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2018-01-29\   
 db filename: 2202-postgresql_database-GameDB-backup
 
-**Golden Tee Live 2015**   
+**Golden Tee Live 2015** (10.04.06)   
 DB name: GameDB15   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2018-01-30\   
 db filename: 0206-postgresql_database-GameDB-backup
 
-**Orange County Choppers Pinball**   
+**Orange County Choppers Pinball** (0.00.51)   
 DB name: GameDBOCC   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2020-09-12\   
 db filename: 1549-postgresql_database-GameDB-backup
 
-**Power Putt Live 2012**   
+**Power Putt Live 2012** (1.01.08)   
 DB name: GAMEDBPP12   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\   
 db filename: 1433-postgresql_database-GameDB-backup
 
-**Power Putt Live 2013**   
+**Power Putt Live 2013** (2.01.08)   
 DB name: GAMEDBPP13   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2023-10-27\   
 db filename: 2042-postgresql_database-GameDB-backup
 
-**Silver Strike Bowling Live**   
+**Silver Strike Bowling Live** (3.02.07)   
 DB name: GameDBSSB   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\   
 db filename: 2222-postgresql_database-GameDB-backup
 
-**Target Toss Pro Bags**   
+**Target Toss Pro Bags** (1.00.10)   
 DB name: GameDBBags   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2017-11-16\   
 db filename: 0136-postgresql_database-GameDB-backup
 
-**Target Toss Pro Lawn Darts & Bags**   
+**Target Toss Pro Lawn Darts & Bags** (2.00.05)   
 DB name: GameDBLawndarts   
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2017-05-28\   
