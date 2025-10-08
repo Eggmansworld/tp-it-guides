@@ -34,6 +34,8 @@ Ensure each of your game’s files are extracted to their respective folders –
 
 **First, let's calm your fear and doubt about installing an app you may be unfamiliar with. When you install PostgreSQL v8.3 on your Windows computer, you're simply setting up a local database server that stores and organizes information in a structured way — similar to how Microsoft Excel uses rows and columns. It runs quietly in the background and only responds to programs or tools you authorize to connect to it, which in this case will only be the TeknoParrot app. PostgreSQL doesn’t collect or send your personal data anywhere by default, and it doesn’t interfere with other programs on your PC. It's a trusted, open-source tool used by developers, researchers, and businesses around the world. As long as you follow this guide and keep your system secure, there’s nothing risky about having it installed.**
 
+# DOWNLOAD THE POSTGRES v8.3 installer from the release section of this repository.
+
 You must be logged into your Windows PC with an account that has administrator privileges.
 
 1.  Using the Windows Search function, type “Services” and run the app.
