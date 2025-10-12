@@ -1,4 +1,4 @@
-# The Super Easy Universal Setup Guide for all TeknoParrot iT Games
+# Incredible Technologies Super Easy Universal Setup Guide
 
 The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
 - install PostgreSQL v8.3, and
