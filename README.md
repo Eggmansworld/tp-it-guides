@@ -257,6 +257,12 @@ Encoding: SQL_ASCII
 db backup location: \pg_backup\2018-01-07\   
 db filename: 1942-postgresql_database-GameDB-backup
 
+**Golden Tee Live 2017** (12.04.05)   
+DB name: GameDB17   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2018-01-30\   
+db filename: 0241-postgresql_database-GameDB-backup
+
 **Orange County Choppers Pinball** (0.00.51)   
 DB name: GameDBOCC   
 Encoding: SQL_ASCII    
