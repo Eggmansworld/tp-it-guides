@@ -1,3 +1,10 @@
+If you would like to support this project, you have my gratitude!
+
+<a href="https://buymeacoffee.com/eggmansworld">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" height="45" alt="Buy Me a Coffee">
+</a>
+
+
 # Incredible Technologies Super Easy Universal Setup Guide
 
 The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
