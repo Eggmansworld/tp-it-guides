@@ -1,4 +1,4 @@
-If you would like to support this project, you have my gratitude!
+If these tools, dats, or archives save you time or preserve history, consider supporting the work:
 
 <a href="https://buymeacoffee.com/eggmansworld">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" height="45" alt="Buy Me a Coffee">
