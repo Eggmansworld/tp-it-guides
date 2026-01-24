@@ -7,41 +7,50 @@ If these tools, dats, or archives save you time or preserve history, consider su
 
 # Incredible Technologies Super Easy Universal Setup Guide
 
-The databases for all iT games are now setup automatically by the TPUI app - there is no longer a need to edit anything in the databases! This guide has been updated to help the user:
-- install PostgreSQL v8.3, and
-- restore a game database from your game backup.
+The databases for all iT games are now setup automatically by the TPUI app when the games are run. There is no longer a need to edit anything in the databases. This universal guide applies to ALL Incredible Technologies games and will help you:
 
-For historical purposes, the old individual game guides are still available in the releases section and can still be used to setup your game databases.
+- install PostgreSQL v8.3,
+- restore a game database from your game backup, and
+- make one simple setting change to the imported database to finish the install.
+
+For historical purposes, the original per-game guides are still available in the releases section and can still be used to setup your game databases.  It is NOT recommended to use the old guides. The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time messing with tables when you could be playing the games instead.
+
+---
 
 # INTRODUCTION
 
 This universal guide is created to assist people with setting up their legally owned backups of their incredible Technologies (iT) games, to be used with the TeknoParrot application (TPUI). This guide assumes that the reader has a basic understanding of how to use a Windows computer. It has been written with a level of detail that even an inexperienced user should be able to follow. If you have your legally owned backup of the game, you have everything you need for this setup.
 
-Do not be alarmed at the length of the guide! Much of it is screenshots to visually assist you along the way. 
+Do not be alarmed at the length of the guide. Most of it is screenshots to visually assist you along the way. 
+- For a first-time full Postgres install and your first game database restore: 10-15 minutes
+- If you have Postgress already installed and you're adding another game database:  2 minutes
+- Take your time! Read each step first to understand it, then perform the step. 
+- Do not skip over anything or work ahead. This guide is meant to be done in the order it is presented, from start to finish. 
+- If you miss a step or do something incorrectly along the way thinking you're smarter than the guide, it is very likely you will experience problems when running the game.
+- **Don’t panic!** Retrace your steps, figure out where you went wrong and make the necessary correction(s).
+- If you're really having problems, ask for help in the Teknoparrot Discord #golden-tee channel.
 
-ESTIMATED TIME FOR FIRST-TIME FULL POSTGRES INSTALL AND DATABASE SETUP: **10 minutes**
-
-PRE-EXISTING POSTGRES INSTALL, DATABASE SETUP ONLY: **2 minutes**
-  
-- Take your time! 
-- Read each step first to understand it, then perform the step. 
-- Do not skip over anything or work ahead. 
-- This guide is meant to be done in the order it is presented, from start to finish. 
-- If you miss a step or do something incorrectly along the way, it is very likely you will experience problems when running the game. **Don’t panic!** Retrace your steps, figure out where you went wrong and make the necessary correction(s).
+---
 
 # PRE-SETUP
 
-If you have NOT installed PostgreSQL v8.3 on your Windows PC yet, carry on to the next section titled “PostgreSQL v8.3 Install”.  
-  
-If you have already installed PostgreSQL, skip ahead to the “**PostgreSQL CREATE DATABASE**” section to install another game. 
-  
-Ensure each of your game’s files are extracted to their respective folders – one game per folder. Place the game folders in a static location where you will run your TP games from. Leave the game folder(s) alone for now, we’ll come back to them later.
+- If you have NOT installed PostgreSQL v8.3 on your Windows PC yet, carry on to the next section titled “PostgreSQL v8.3 Install”.  
+- If you have already installed PostgreSQL, skip ahead to the “**PostgreSQL CREATE DATABASE**” section to setup a game database. 
+- Ensure each of your game’s files are extracted to their respective folders – one game per folder.
+
+---
 
 # PostgreSQL v8.3 INSTALL
 
 **First, let's calm your fear and doubt about installing an app you may be unfamiliar with. When you install PostgreSQL v8.3 on your Windows computer, you're simply setting up a local database server that stores and organizes information in a structured way — similar to how Microsoft Excel uses rows and columns. It runs quietly in the background and only responds to programs or tools you authorize to connect to it, which in this case will only be the TeknoParrot app. PostgreSQL doesn’t collect or send your personal data anywhere by default, and it doesn’t interfere with other programs on your PC. It's a trusted, open-source tool used by developers, researchers, and businesses around the world. As long as you follow this guide and keep your system secure, there’s nothing risky about having it installed.**
 
-# DOWNLOAD THE POSTGRES v8.3 installer from the release section of this repository.
+# DOWNLOAD THE POSTGRES v8.3 installer from the release section of this repository
+- For your own safety, do not download the installer from anywhere else other than here. 
+- Do NOT install a different Postgres version. If you did, uninstall it and install v8.3. 
+- Do NOT deviate from the default installation path. 
+- DO NOT use a pre-installed or pre-configured standalone Postgres database folder, thinking your clever or you paid some drive seller for a sketchy setup. This guide will not help you at all and you're on your own.
+
+---
 
 You must be logged into your Windows PC with an account that has administrator privileges.
 
@@ -57,31 +66,35 @@ You must be logged into your Windows PC with an account that has administrator p
   
     <img width="486" height="427" alt="image" src="https://github.com/user-attachments/assets/b6b34d9d-449c-4290-bd20-7144575c6866" />
 
-3.  Inside the folder you extracted from the download, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.  DO NOT USE ANY OTHER VERSION OF POSTGRES OTHER THAN v8.3.
+3.  Inside the Postgres install folder you downloaded and extracted, run “**SETUP.bat**”. VC2005 is installed first, then the Postgres installer starts after. If VC2005 is already installed on your system, you can ignore the “another version already installed” message and continue the Postgres installation.  DO NOT USE ANY OTHER VERSION OF POSTGRES OTHER THAN v8.3.
 
     <img width="501" height="251" alt="image" src="https://github.com/user-attachments/assets/fc885d80-e78b-4c4b-92e2-7ff6a220e5bb" />
 
 4.  Click through the PostgreSQL installer, changing NOTHING (use all default installer settings), until you get to the **Service configuration** window.
 
-5.  On the Service Configuration window, leave everything as default except for the Account Password box, type in a strong password. Postgres wants to see a password that contains, at minimum, a combination of upper and lower case letters, and numbers. This creates a Service Account in your Windows OS that is responsible for starting and running the Postgres database server in the background. This account has absolutely **nothing** to do with the TeknoParrot frontend and is only used to run the Postgres server as a system service. STORE THIS PASSWORD SOMEWHERE SAFE.
+5.  On the Service Configuration window, leave everything as default except:
+- for the Account Password box, type in a strong password. Postgres wants to see a password that contains, at minimum, a combination of upper and lower case letters + numbers. 
+- This account creation is for the Service Account in your Windows OS that is responsible for starting and running the Postgres database server in the background.
+- This account has absolutely **nothing** to do with the TeknoParrot frontend and is only used to run the Postgres server as a system service.
+- Store the password somewhere safe.
+- If you need to remove this account later on, see the Troubleshooting/Help section at the end of this document.
 
 6.  Click **Next**. You’ll see a prompt that the “postgres user was not found” and if you want the account to be created. Select **Yes**
 
-    Note: If you used a weak password, you’ll be prompted if you want Postgres to replace it with a random password. It is best to choose “No”, then click the Back button to change your password to something stronger. If you choose “Yes”, then it will create a random 32-character scrambled password which you have to write down by hand (no copy/paste available!)
+    NOTE: If you used a weak password, you’ll be prompted if you want Postgres to replace it with a random password. It is best to choose “No”, then click the Back button to change your password to something stronger. If you choose “Yes”, then it will create a random 32-character scrambled password which you have to write down by hand (no copy/paste available!)
 
     <img width="499" height="385" alt="image" src="https://github.com/user-attachments/assets/6e3751a3-8658-49ea-b239-83e06847eb96" />
 
 7.  On the next screen titled “**Initialize database cluster”**, make the necessary changes to match the screenshot below. This step creates the internal Postgres database **superuser** account.  
     - **The “C” Locale must be selected.** It is in the pulldown list at the start of the locales that begin with the letter C. I will not explain why this is used other than to say it is performance related for the database only.
+    - Both Encoding settings must be set to **UTF8**.
     
+       <img width="496" height="382" alt="image" src="https://github.com/user-attachments/assets/92c05458-3114-4a99-9a5e-a82362d1c780" />
        <img width="380" height="304" alt="image" src="https://github.com/user-attachments/assets/8a8ca720-8028-4126-87c0-2841e216436a" />
     
-    - This is the account you use to manage the game databases in Postgres.
+    - This is the account you use to open and manage the game databases in the pgAdmin app, and is also the account that TPUI uses to access the game database.
     - Yes, it has the same name as the Windows Service account, but this account is only used to access the database, not run it.
-    - This is the account that TPUI uses to access the game database
-    - It is highly advisable to make the password different than the Service Account password. There is no requirement to make it strong or complex, just make it something you can remember. A memorable example would be “teknoparrot”.
-
-     <img width="496" height="382" alt="image" src="https://github.com/user-attachments/assets/92c05458-3114-4a99-9a5e-a82362d1c780" />
+    - There is no requirement to make a strong or complex password, just make it something easy to remember. A memorable example would be “teknoparrot”.
 
 8.  Click **Next** to continue
 
@@ -91,49 +104,43 @@ You must be logged into your Windows PC with an account that has administrator p
 
 11. Click **Finish**
 
-12. **REBOOT YOUR COMPUTER! This must be done before you continue.**
-
-After rebooting, you are now done installing PostgreSQL on your computer and you are ready to create and import the game database.
+12. **REBOOT YOUR COMPUTER! THIS MUST BE DONE BEFORE YOU CONTINUE. Do not try to be clever and skip this step.**
+- After rebooting, you are now done installing PostgreSQL on your computer and you are ready to create and import game databases.
+- YOU ONLY NEED TO INSTALL POSTGRES ONCE ON YOUR PC. You use the pgAdmin app to add game databases to the Postgres install. That's all there is to it.
 
 # PostgreSQL CREATE DATABASE
 
-1.  From the Windows Start Menu -\> **PostgreSQL 8.3** folder, click on **pgAdmin III** (or use Windows Search to find the app). **pgAdmin** is the program that allows you to connect to the database server and manage the database you will be setting up in the following steps.
+1.  From the Windows Start Menu -\> **PostgreSQL 8.3** folder, click on **pgAdmin III** (or use Windows Search to find the app). **pgAdmin** is the program that you use to setup and manage your game databases.
 
-2.  When the **pgAdmin** window opens:
+3.  When the **pgAdmin** window opens:
     - Under **Servers**, double-click on **PostgreSQL Database Server 8.3**
-    - type in your postgres **superuser** password you created earlier to connect to the database. In the example setup in the previous section, the example password was “teknoparrot”.
+    - type in your postgres **superuser** password you created earlier to connect to the database.
 
     <img width="422" height="263" alt="image" src="https://github.com/user-attachments/assets/494caf1a-7a09-4817-b665-e60fba059745" />
 
-3.  In the Object browser tree, right-click on **Databases** and select **New Database**  
+4.  In the Object browser tree, right-click on **Databases** and select **New Database**  
 
     <img width="419" height="130" alt="image" src="https://github.com/user-attachments/assets/f1a3fdde-d252-47a2-90b6-b8d64d0859fd" />
 
-4.  On the Properties tab, we need to give the new database a name. The name can be anything you want but keep it simple and use only alphanumeric characters.  
+5.  On the Properties tab, you need to give the new database a name. The name can be anything you want but keep it simple and use only alphanumeric characters. In this example, we are using the default database name for Golden Tee 2014.
    
-    **Reference the bottom of this document (Appendix A), for a full list of games and their TPUI default database names.**  
+    **Reference Appendix A at the bottom of this document for a full list of games and their TPUI default database names.**  
       
-    **Name**: GameDB14
-    
-    **Owner**: postgres
-    
-    **Encoding**: SQL_ASCII
-    
-      (note: all games have this encoding except for Golden Tee 2006)
-    
-    **Template**: template0
-    
-    **Tablespace**: pg_default
-          
+    - **Name**: GameDB14
+    - **Owner**: postgres
+    - **Encoding**: SQL_ASCII      (note: all games use SQL_ASCII encoding except for Golden Tee 2006, which uses UTF8)
+    - **Template**: template0
+    - **Tablespace**: pg_default
+  
+    <img width="396" height="522" alt="image" src="https://github.com/user-attachments/assets/5cb01352-4637-4155-be8a-541b68125df2" />
+   
 6. Click on the “**Variables**” tab.
     - under **Variable Name**, use the pulldown menu and select "**standard_conforming_strings**"
     - put a checkmark in the **Variable Value** box
     - click the **Add/Change** button, and it will add the new variable in the list.
     - click **OK** to exit
-   
-   <img width="396" height="522" alt="image" src="https://github.com/user-attachments/assets/5cb01352-4637-4155-be8a-541b68125df2" />
-
-   <img width="393" height="519" alt="image" src="https://github.com/user-attachments/assets/00e4e833-3c9a-4f4a-b6e4-ef1e8e6661a3" />
+      
+    <img width="393" height="519" alt="image" src="https://github.com/user-attachments/assets/00e4e833-3c9a-4f4a-b6e4-ef1e8e6661a3" />
    
 7.  The new database will be created and is now located under **Databases**. Don’t worry if there is a red X in it, it just means you haven’t selected it. The red X will go away when you click on the database.
 
@@ -197,6 +204,8 @@ Your settings should look something like this:
 For questions about different game settings and problems with gameplay, please visit the TeknoParrot Discord and ask your questions there.
 
 # APPENDIX A
+
+These are the default TPUI game database names and restore settings. As stated earlier, you can call the databases whatever you want, but be sure you update the game settings with your database name.
 
 **Golden Tee Live 2006** (1.00.48)   
 DB name: GameDB06   
