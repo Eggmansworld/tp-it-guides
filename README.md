@@ -4,6 +4,7 @@ If this helps you save time or preserve a part of your gaming history, consider 
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" height="45" alt="Buy Me a Coffee">
 </a>
 
+---
 
 # Incredible Technologies Super Easy Universal Setup Guide
 
