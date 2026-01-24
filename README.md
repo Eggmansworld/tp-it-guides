@@ -1,4 +1,4 @@
-If this helps you save time or preserve a part of your gaming history, consider supporting the work:
+If this helps you save time, consider supporting the work:
 
 <a href="https://buymeacoffee.com/eggmansworld">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" height="45" alt="Buy Me a Coffee">
@@ -14,7 +14,7 @@ The databases for all iT games are now setup automatically by the TPUI app when 
 - restore a game database from your game backup, and
 - make one simple setting change to the imported database to finish the install.
 
-For historical purposes, the original per-game guides are still available in the releases section and can still be used to setup your game databases.  It is NOT recommended to use the old guides. The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time messing with tables when you could be playing the games instead.
+It is no longer recommended to use the old individual "detailed guides". The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time needlessly messing with tables.
 
 ---
 
