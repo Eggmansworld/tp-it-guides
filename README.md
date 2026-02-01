@@ -8,7 +8,7 @@ If this helps you save time, consider supporting the work:
 
 # Incredible Technologies Super Easy Universal Setup Guide
 
-The databases for all iT games are now setup automatically by the TPUI app when the games are run. There is no longer a need to edit anything in the databases. This universal guide applies to ALL Incredible Technologies games and will help you:
+The databases for all iT games now have their internal tables automatically setup by the TPUI app when the games are run. There is no longer a need to edit anything in the databases. This universal guide applies to ALL Incredible Technologies games and will help you:
 
 - install PostgreSQL v8.3,
 - restore a game database from your game backup, and
