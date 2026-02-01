@@ -129,7 +129,7 @@ You must be logged into your Windows PC with an account that has administrator p
       
     - **Name**: GameDB14
     - **Owner**: postgres
-    - **Encoding**: SQL_ASCII      (note: all games use SQL_ASCII encoding except for Golden Tee 2006, which uses UTF8)
+    - **Encoding**: SQL_ASCII      (note: **ALL GAMES USE SQL_ASCII encoding** except for Golden Tee 2006, which uses UTF8)
     - **Template**: template0
     - **Tablespace**: pg_default
   
@@ -139,11 +139,11 @@ You must be logged into your Windows PC with an account that has administrator p
     - under **Variable Name**, use the pulldown menu and select "**standard_conforming_strings**"
     - put a checkmark in the **Variable Value** box
     - click the **Add/Change** button, and it will add the new variable in the list.
-    - click **OK** to exit
+    - CLICK **OK** TO APPLY THE NEW VARIABLE SETTING AND CREATE THE EMPTY DATABASE.
       
     <img width="393" height="519" alt="image" src="https://github.com/user-attachments/assets/00e4e833-3c9a-4f4a-b6e4-ef1e8e6661a3" />
    
-7.  The new database will be created and is now located under **Databases**. Don’t worry if there is a red X in it, it just means you haven’t selected it. The red X will go away when you click on the database.
+7.  The new empty game database will be created and is now located under **Databases**. Don’t worry if there is a red X in it, it just means you haven’t selected it.
 
 # RESTORE GAME DATABASE
 
