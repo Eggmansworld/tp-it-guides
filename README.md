@@ -189,12 +189,12 @@ You must be logged into your Windows PC with an account that has administrator p
 
 3.  click on the Game Executable file path, browse to your game folder location, select the “**game.bin**” file and click on **Open**
 
-4.  The default settings are as follows. If you have setup Postgres as per this guide and didn’t deviate from the recommended settings, you only need to change the DbName and enter the postgres password. If you’ve gone out on your own and customized your install path or any other settings, make the appropriate changes as necessary.
+4.  The default settings are as follows. If you have setup Postgres as per this guide and didn’t deviate from the recommended settings, you only need to change the DbName and enter your postgres password. If you’ve gone out on your own and customized your install path or any other settings, make the appropriate changes as necessary.
       
-    Postgres – Path:      C:\Program Files (x86)\PostgreSQL\8.3\bin\\  
+    Postgres – Path:      C:\Program Files (x86)\PostgreSQL\8.3\bin\  
     Postgres – Address:   127.0.0.1  
     Postgres – Port:      5432  
-    Postgres – DbName:    see Appendix A for each game’s default database name  
+    Postgres – DbName:    see Appendix A for each game’s default database name, or create your own  
     Postgres – Username:  postgres  
     Postgres – Pass:      type your postgres superuser password here (NOTE: THE PASSWORD LINE IS EMPTY BY DEFAULT!)
 
@@ -212,16 +212,18 @@ For questions about different game settings and problems with gameplay, please v
 
 ---
 
-## Golden Tee Live 2018 Express Database install/setup
+# Golden Tee Live 2018 Express Database install/setup
 
-1. Install PostgreSQL and set it up as per the instructions above.
+As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
+
+You can use this option to save yourself some time. You can still opt to follow the guide and perform the db restore yourself - it's up to you. This new feature is only for GT 2018 and newer versions, it will not be added to the older GT versions or any other IT game.
+
+1. Install PostgreSQL and set it up as per the instructions at the top of this guide, under the "PostgreSQL v8.3 INSTALL" header.
 2. Go into the game settings for GT 2018 (or newer release), and setup the Postgres fields as necessary. DO NOT FORGET to give your database a name, or enter the password!  People still forget to do this, even with a guide.
 3. Enable the **"Postgres - Automatically create Database"** setting.
-4. Start the game.
+4. Start the game. That's it. On first run, the database is restored and settings applied, and you're off to the races. If this is not working for you, go back to the top of the guide, review all the steps of the guide, and see where you went wrong.
 
-That's it. On first run, the database is restored and settings applied, and you're off to the races. 
-
-All I can say is that if this is not working for you, go back to the top of the guide, review all the steps of the guide, and see where you went wrong.
+<img width="697" height="232" alt="image" src="https://github.com/user-attachments/assets/3a8f23bb-a9ba-4a79-b185-fbc8c3fe6119" />
 
 ---
 
@@ -347,23 +349,38 @@ db filename: 2104-postgresql_database-GameDB-backup
 
 # Postgres account modifications
 
-Postgres Windows Service Account
+## How to make a change to the "postgres" Windows Service Account
   - do a Windows Search for “Computer Management” and run the app. Expand the “Local Users and Groups” branch and click on "Users".
-    - to delete the account, right click the "postgres" account and select Delete
-    - to change the password, right click and select "Set Password". Click on Proceed, and follow on-screen instructions.
+    - **to delete the account**, right click the "postgres" account and select Delete
+    - **to change the password**, right click and select "Set Password". Click on Proceed, and follow on-screen instructions.
 
   <img width="975" height="73" alt="image" src="https://github.com/user-attachments/assets/0f31046c-421f-4a91-9ed6-319c861ca998" />
 
-Postgres SuperUser Database Account (the account you use in TPUI settings):
-  - in pgAdmin, connect to the server using your current credentials
-  - In the Object browser, go to Login Roles and expand the branch to view the users
+## How to make a change to the Postgres SuperUser Database Account (the account you use in TPUI settings)
+  - in the **pgAdmin** app, connect to the server using your current credentials
+  - In the **Object browser**, go to **Login Roles** and expand the branch to view the users
     - to change the password, right-click the user (e.g., postgres) and select Properties. Enter a new password and click OK.
   
-  <img width="287" height="132" alt="image" src="https://github.com/user-attachments/assets/7f43a277-4d28-441b-8e5b-f16f356bfdc3" />
+<img width="350" height="197" alt="image" src="https://github.com/user-attachments/assets/cdb00d6c-78ca-4bc1-9f1f-3b31beb9229f" />
 
-# Restrict PostgreSQL Access to Localhost Only
+  - if you have completely FORGOTTEN your postgres password, you will need to perform some additional steps to temporarily enable passwordless login and get yourself fixed up.  Read over this [article](https://www.geeksforgeeks.org/postgresql/postgresql-reset-password-for-postgres/) and get yourself fixed up.  Alternately, ask any decent AI chatbot for help doing the same thing and it'll effectively hold your hand through the process.
 
-If you followed the above guide to setup Postgres on your computer, restricting access to localhost only is already setup by default. This means the Postgres service will only respond to local users and communication to and from the local database. This information is provided to bring attention on how you would check to ensure the config files are setup correctly. It would be highly recommended to check this over if you obtained a pre-configured TeknoParrot setup from another source, such as paying money for a pre-configured hard drive from a dirtbag drive seller. In the interest of security, I'm providing this information for your own safety.
+## How to uninstall Postgres 8.3 completely
+  - Uninstall the app via the Conrol Panel the same way you would normally uninstall any other Windows app
+  
+  <img width="682" height="71" alt="image" src="https://github.com/user-attachments/assets/a05074ab-0882-4472-b62e-ad44a2909c70" />
+
+  - After uninstalling, there will be orphaned database and settings files left behind.  
+  - In File Explorer, go to "C:\Program Files (x86)\PostgreSQL"
+  - if there is only an "8.3" subfolder in this location, you can safely delete the entire PostgreSQL folder.
+  - if you see other folders other than "8.3" (you may be using another version of PostgreSQL for something else), only delete the "8.3" folder and leave anything else alone.
+  - you will need administrative permissions to delete the folder.
+
+## Restrict PostgreSQL Access to Localhost Only
+
+If you followed the above guide to setup Postgres on your computer, restricting access to localhost only is already setup by default. It means the Postgres service will only respond to local users and communication to and from the local database. 
+
+If you obtained a pre-configured TeknoParrot setup from another source such as paying money for a pre-configured hard drive from a dirtbag drive seller, the Postgres install was pre-configured by someone else. In the best interest of security, I'm providing this information for your own safety to check the settings and ensure no fuckery is going on.
 
 **Step 1: Edit postgresql.conf**
   - Find the postgresql.conf file (usually in C:\Program Files\PostgreSQL\8.3\data\).
