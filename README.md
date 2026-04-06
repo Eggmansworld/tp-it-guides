@@ -8,13 +8,19 @@ If this helps you save time, consider supporting the work:
 
 # Incredible Technologies Super Easy Universal Setup Guide
 
-The databases for all iT games now have their internal tables automatically setup by the TPUI app when the games are run. There is no longer a need to edit anything in the databases. This universal guide applies to ALL Incredible Technologies games and will help you:
+This universal guide applies to almost all Incredible Technologies games supported in the TeknoParrot environment and will help you:
 
 - install PostgreSQL v8.3,
 - restore a game database from your game backup, and
 - make one simple setting change to the imported database to finish the install.
 
-It is no longer recommended to use the old individual "detailed guides". The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time needlessly messing with tables.
+It is no longer recommended to use the older individual "Detailed Guides". The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time needlessly messing with tables.
+
+## Golden Tee Live 2018 and future releases
+
+As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
+
+You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. See further down this readme for the full steps of how to use this new feature!
 
 ---
 
@@ -203,6 +209,21 @@ Your settings should look something like this:
 7.  **Click on LAUNCH GAME.**
 
 For questions about different game settings and problems with gameplay, please visit the TeknoParrot Discord and ask your questions there.
+
+---
+
+## Golden Tee Live 2018 Express Database install/setup
+
+1. Install PostgreSQL and set it up as per the instructions above.
+2. Go into the game settings for GT 2018 (or newer release), and setup the Postgres fields as necessary. DO NOT FORGET to give your database a name, or enter the password!  People still forget to do this, even with a guide.
+3. Enable the **"Postgres - Automatically create Database"** setting.
+4. Start the game.
+
+That's it. On first run, the database is restored and settings applied, and you're off to the races. 
+
+All I can say is that if this is not working for you, go back to the top of the guide, review all the steps of the guide, and see where you went wrong.
+
+---
 
 # APPENDIX A
 
