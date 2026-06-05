@@ -20,7 +20,7 @@ It is no longer recommended to use the older individual "Detailed Guides". The T
 
 As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
 
-You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. For the full steps of how to use this new feature, jump to:  [Golden Tee Live 2018+ TPUI Express Database install](#Golden Tee Live 2018+ TPUI Express Database install)
+You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. For the full steps of how to use this new feature, jump to [Golden Tee Live 2018+ TPUI Express Database install](#golden-tee-live-2018+-tpui-express-database-install)
 
 ---
 
