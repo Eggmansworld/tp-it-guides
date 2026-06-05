@@ -20,7 +20,7 @@ It is no longer recommended to use the older individual "Detailed Guides". The T
 
 As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
 
-You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. See further down this readme for the full steps of how to use this new feature!
+You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. For the full steps of how to use this new feature, jump to:  [Golden Tee Live 2018+ TPUI Express Database install](#Golden Tee Live 2018+ TPUI Express Database install)
 
 ---
 
@@ -212,16 +212,17 @@ For questions about different game settings and problems with gameplay, please v
 
 ---
 
-# Golden Tee Live 2018 Express Database install/setup
+# Golden Tee Live 2018+ TPUI Express Database install
 
 As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
 
-You can use this option to save yourself some time. You can still opt to follow the guide and perform the db restore yourself - it's up to you. This new feature is only for GT 2018 and newer versions, it will not be added to the older GT versions or any other IT game.
+You can use this option to save yourself even more time! You can still opt to follow the guide and perform the db restore yourself - it's up to you. This new feature is only for GT 2018 and newer versions, it will not be added to the older GT versions or any other IT game.
 
 1. Install PostgreSQL and set it up as per the instructions at the top of this guide, under the "PostgreSQL v8.3 INSTALL" header.
 2. Go into the game settings for GT 2018 (or newer release), and setup the Postgres fields as necessary. DO NOT FORGET to give your database a name, or enter the password!  People still forget to do this, even with a guide.
-3. Enable the **"Postgres - Automatically create Database"** setting.
-4. Start the game. That's it. On first run, the database is restored and settings applied, and you're off to the races. If this is not working for you, go back to the top of the guide, review all the steps of the guide, and see where you went wrong.
+3. Enable the **"Postgres - Automatically create Database"** setting in the TPUI game settings.
+4. Start the game. On first run, you will be asked where the location of the backup file is, just look inside the game folder for the "pg_backup" folder and select the backup file. The database is then restored and settings appliedand you'll see a message when it is complete. 
+5. If this is not working for you, go back to the top of the guide, review all the steps of the guide, and see where you went wrong.
 
 <img width="697" height="232" alt="image" src="https://github.com/user-attachments/assets/3a8f23bb-a9ba-4a79-b185-fbc8c3fe6119" />
 
@@ -308,6 +309,12 @@ DB name: GameDB18
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2018-06-21\   
 db filename: 1942-postgresql_database-GameDB-backup
+
+**Golden Tee Live 2019** (14.04.13)   
+DB name: GameDB19   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2025-05-20\   
+db filename: 1610-postgresql_database-GameDB-backup
 
 **Orange County Choppers Pinball** (0.00.51)   
 DB name: GameDBOCC   
