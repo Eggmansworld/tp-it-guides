@@ -16,11 +16,13 @@ This universal guide applies to almost all Incredible Technologies games support
 
 It is no longer recommended to use the older individual "Detailed Guides". The TPUI app will setup and make the necessary changes to the game databases even if you do them yourself - you're just wasting your time needlessly messing with tables.
 
-## Golden Tee Live 2018 and future releases
+## Golden Tee Live 2018, and future releases
 
 As of the release of Golden Tee Live 2018 in February 2026, TP devs have added a game settings feature that automatically restores the database backup and settings if it has not been done before.
 
 You can use this option to save yourself some time. You can certainly still opt to perform the db restore yourself following this guide, it's up to you.  This new feature is only for GT 2018 and newer versions, it will not be added to the older versions. For the full steps of how to use this new feature, jump to [Golden Tee Live 2018 TPUI Express Database install](#golden-tee-live-2018-tpui-express-database-install)
+
+If you have problems with your database setup using the TPUI restore db functionality, head to the TeknoParrot Discord and ask for help. Or, just follow this simple guide and get back up and running.
 
 ---
 
@@ -315,6 +317,12 @@ DB name: GameDB19
 Encoding: SQL_ASCII    
 db backup location: \pg_backup\2025-05-20\   
 db filename: 1610-postgresql_database-GameDB-backup
+
+**Golden Tee Live 2020** (15.04.08)   
+DB name: GameDB20   
+Encoding: SQL_ASCII    
+db backup location: \pg_backup\2025-05-10\   
+db filename: 2228-postgresql_database-GameDB-backup
 
 **Orange County Choppers Pinball** (0.00.51)   
 DB name: GameDBOCC   
